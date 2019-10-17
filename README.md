@@ -3,11 +3,11 @@
 
 ## Instructions
 
-- **Fork** this repository, then clone your fork.
-- Run `yarn` to download dependencies.
-- Run the server using `yarn start` or `node server.js`.
-- In a separate terminal cd into the `client` folder and run `yarn install` to download dependencies.
-- Still inside the `client` folder run `yarn start` to run the client application.
+- [X]**Fork** this repository, then clone your fork.
+- [X] Run `yarn` to download dependencies.
+- [X] Run the server using `yarn start` or `node server.js`.
+- [X] In a separate terminal cd into the `client` folder and run `yarn install` to download dependencies.
+- [X] Still inside the `client` folder run `yarn start` to run the client application.
 
 ### Part 1 - Updating A Movie:
 
