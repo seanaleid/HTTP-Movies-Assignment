@@ -9,6 +9,7 @@ export default class Movie extends React.Component {
     };
   }
 
+  
   updateMovie = () => {
     const updateMovieInfo = this.props.updateMovieInfo;
     updateMovieInfo((id) => {this.state.movie.find(
@@ -21,6 +22,7 @@ export default class Movie extends React.Component {
     this.fetchMovie(this.props.match.params.id);
   }
 
+  // function that works like --> updateMovie
   componentWillReceiveProps(newProps) {
     if (this.props.match.params.id !== newProps.match.params.id) {
       this.fetchMovie(newProps.match.params.id);
@@ -52,7 +54,7 @@ export default class Movie extends React.Component {
         </div>
         <button 
           className="movie-button" 
-          onClick={() => this.props.hisory.push(`/update-movie/${this.updateMovie}`)}
+          onClick={() => this.props.history.push(`/update-movie/${this.updateMovie}`)}
           >
             Edit
           </button>
