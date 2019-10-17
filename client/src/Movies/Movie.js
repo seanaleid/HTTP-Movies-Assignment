@@ -9,6 +9,14 @@ export default class Movie extends React.Component {
     };
   }
 
+  updateMovie = () => {
+    const updateMovieInfo = this.props.updateMovieInfo;
+    updateMovieInfo((id) => {this.state.movie.find(
+      film => `${film.id}` === this.props.match.params.id
+    )})
+  }
+
+
   componentDidMount() {
     this.fetchMovie(this.props.match.params.id);
   }
@@ -42,7 +50,12 @@ export default class Movie extends React.Component {
         <div className="save-button" onClick={this.saveMovie}>
           Save
         </div>
-        <button className="movie-button" >Edit</button>
+        <button 
+          className="movie-button" 
+          onClick={() => this.props.hisory.push(`/update-movie/${this.updateMovie}`)}
+          >
+            Edit
+          </button>
         <button className="movie-button" >Delete</button>
       </div>
     );
