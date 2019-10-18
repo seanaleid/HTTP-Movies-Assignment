@@ -14,7 +14,7 @@ const UpdateMovieForm = props => {
     const [ movie, setMovie ] = useState(initialMovie);
 
     useEffect(() => {
-        const movieToUpdate = props.savedList.find(
+        const movieToUpdate = props.updateMovieInfo.movie && props.updateMovieInfo.movie.find(
             movie => `${movie.id}` === props.match.params.id
         )
 
@@ -27,6 +27,8 @@ const UpdateMovieForm = props => {
     //         [e.target.name]: e.target.value
     //     })
     // }
+
+    // version 2 -> updateMovieInfo state form App doesn't put or change the info
 
     const handleChanges = ev => {
         ev.persist();
@@ -44,7 +46,11 @@ const UpdateMovieForm = props => {
     const handleSubmit = e => {
         e.preventDefault();
         axios.put(`http://localhost:5000/api/movies/${props.id}`, movie)
-        .then(res => console.log(res))
+        .then(res => {
+            props.updateMovieInfo(res.data);
+            alert(`Movie successfully updated! Thank you for catching that!`);
+            props.history.push("/");
+        })
         .catch(err => console.log(err.response))
     }
 
