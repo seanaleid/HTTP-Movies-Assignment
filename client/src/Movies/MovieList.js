@@ -5,6 +5,7 @@ import MovieCard from "./MovieCard";
 export default class MovieList extends Component {
   constructor(props) {
     super(props);
+    console.log(props)
     this.state = {
       movies: []
     };
